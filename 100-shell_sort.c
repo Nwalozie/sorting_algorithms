@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -7,22 +8,31 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap, i, j;
-	int temp;
+        size_t gap = 1;
+        int temp;
+        size_t j, i;
 
-	for (gap = size / 2; gap > 0; gap /= 2)
-	{
-		for (i = gap; i < size; i++)
-		{
-			temp = array[i];
+        while (gap < size / 3)
+        {
+                gap = gap * 3 + 1;
+        }
 
-			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
-			{
-				array[j] = array[j - gap];
-			}
+        while (gap >= 1)
+        {
+                for (i = gap; i < size; i++)
+                {
+                        temp = array[i];
 
-			array[j] = temp;
-		}
-		print_array(array, size);
-	}
+                        for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
+                        {
+                                array[j] = array[j - gap];
+                        }
+
+                        array[j] = temp;
+                }
+
+                print_array(array, size);
+
+                gap /= 3;
+        }
 }
