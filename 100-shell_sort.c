@@ -2,7 +2,7 @@
 #include "sort.h"
 
 /**
- * shell_sort - Function to sort an array of integers using Shell Sort algorithm
+ * shell_sort - Function to sort an array of integers
  * @array: Pointer to the array to be sorted
  * @size: Number of elements in the array
  */
